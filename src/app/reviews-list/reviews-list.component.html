@@ -1,0 +1,8 @@
+<button (click)="sortReviewsList('publish_date')"></button>
+<div *ngIf="reviews.length > 0">
+    <div class="mt-2" *ngFor="let review of reviews">
+        <th>{{review.author}} {{review.rating}} </th>
+        <tr>"{{review.body.substring(0,15)}}" <span>(Read more)</span> </tr>
+        <tr>{{review.publish_date}}</tr>
+    </div>
+</div>
