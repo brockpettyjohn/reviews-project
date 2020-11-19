@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   API_ENDPOINT: "https://shakespeare.podium.com/api/",
-  API_KEY: "H3TM28wjL8R4#HTnqk?c"
+  API_KEY: "H3TM28wjL8R4#HTnqk?c",
+  HolyMoly: "pffft"
 };
 
 /*
