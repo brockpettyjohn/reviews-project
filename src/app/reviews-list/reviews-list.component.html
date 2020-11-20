@@ -1,8 +1,13 @@
-<button (click)="sortReviewsList('publish_date')"></button>
+<div ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Sorty by</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button *ngFor="let term of selectableTerms" (click)="sortReviewsList(term)" ngbDropdownItem>{{term}}</button>
+    </div>
+</div>
 <div *ngIf="reviews.length > 0">
-    <div class="mt-2" *ngFor="let review of reviews">
+    <div class="mt-2" *ngFor="let review of sortedReviews">
         <th>{{review.author}} {{review.rating}} </th>
-        <tr>"{{review.body.substring(0,15)}}" <span>(Read more)</span> </tr>
+        <tr>"{{review.body.substring(0,15)}}" <app-review-detail-modal [id]="review.id"></app-review-detail-modal> </tr>
         <tr>{{review.publish_date}}</tr>
     </div>
 </div>

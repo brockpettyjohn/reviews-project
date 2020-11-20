@@ -8,13 +8,17 @@ import { ReviewDisplayComponent } from './review-display/review-display.componen
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReviewsListComponent } from './reviews-list/reviews-list.component';
 import { ReviewsDetailComponent } from './reviews-detail/reviews-detail.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { ReviewDetailModalComponent } from './review-detail-modal/review-detail-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReviewDisplayComponent,
     ReviewsListComponent,
-    ReviewsDetailComponent
+    ReviewsDetailComponent,
+    LoadingSpinnerComponent,
+    ReviewDetailModalComponent
   ],
   imports: [
     BrowserModule,

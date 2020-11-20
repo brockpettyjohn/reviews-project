@@ -1,4 +1,5 @@
 export class Review {
+    [key: string]: any
     author: string;
     body: string;
     id: number;

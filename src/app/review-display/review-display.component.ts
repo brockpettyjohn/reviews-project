@@ -12,11 +12,11 @@ export class ReviewDisplayComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   averageReviewRating: string;
-  reviewsAbove0: number;
-  reviewsAbove1: number;
-  reviewsAbove2: number;
-  reviewsAbove3: number;
-  reviewsAbove4: number;
+  ratingsAbove0: Review[] = [];
+  ratingsAbove1: Review[] = [];
+  ratingsAbove2: Review[] = [];
+  ratingsAbove3: Review[] = [];
+  ratingsAbove4: Review[] = [];
   reviews: Review[] = [];
 
   ngOnInit(): void {
@@ -29,11 +29,25 @@ export class ReviewDisplayComponent implements OnInit {
   getAverageRating(): void {
     var addedRating = this.reviews.reduce((totalRatingsAdded, current) => {
       totalRatingsAdded += current.rating
+      this.getRatingCounts(current);
       return totalRatingsAdded
     }, 0) / this.reviews.length
     this.averageReviewRating = addedRating.toFixed(2);
   }
 
-
+  getRatingCounts(review: Review): void {
+    const rating = review.rating;
+    if (rating > 4) {
+      this.ratingsAbove4.push(review)
+    } else if (rating >= 3 && rating < 4) {
+      this.ratingsAbove3.push(review)
+    } else if (rating >= 2 && rating < 3) {
+      this.ratingsAbove2.push(review)
+    } else if (rating >= 1 && rating < 2) {
+      this.ratingsAbove1.push(review)
+    } else {
+      this.ratingsAbove0.push(review)
+    }
+  }
 
 }

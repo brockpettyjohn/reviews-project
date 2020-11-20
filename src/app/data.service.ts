@@ -29,4 +29,12 @@ export class DataService {
       })
     )
   }
+
+  getReview(id: number) {
+    return this.http.get<any>(environment.API_ENDPOINT + `/reviews/${id}`, this.getHttpOptions()).pipe(
+      catchError(err => {
+        throw 'error at getReview. Details: ' + err;
+      })
+    )
+  }
 }
