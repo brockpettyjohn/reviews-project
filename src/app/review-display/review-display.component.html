@@ -1,16 +1,12 @@
-<ng-container *ngIf="ratingsAbove0.length < 0">
+<ng-container *ngIf="!reviews">
     <app-loading-spinner></app-loading-spinner>
 </ng-container>
-<div *ngIf="ratingsAbove0.length > 0">
+<div *ngIf="reviews">
     <h1>
         Shakespeare Overall: {{averageReviewRating}}
     </h1>
-    <div>
-        <p>4+{{ratingsAbove4.length/this.reviews.length}}</p>
-        <p>3+{{ratingsAbove3.length/this.reviews.length}}</p>
-        <p>2+{{ratingsAbove2.length/this.reviews.length}}</p>
-        <p>1+{{ratingsAbove1.length/this.reviews.length}}</p>
-        <p>0+{{ratingsAbove0.length/this.reviews.length}}</p>
-    </div>
-    <app-reviews-list [reviews]="reviews"></app-reviews-list>
+    
+
+        <app-reviews-list [reviews]="reviews"></app-reviews-list>
+    
 </div>

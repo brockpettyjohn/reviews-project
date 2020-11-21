@@ -1,13 +1,26 @@
 <div ngbDropdown class="d-inline-block">
     <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Sorty by</button>
     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button *ngFor="let term of selectableTerms" (click)="sortReviewsList(term)" ngbDropdownItem>{{term}}</button>
+        <button *ngFor="let term of selectableTerms" (click)="sortReviewsList(term.selectedTerm)"
+            ngbDropdownItem>{{term.displayName}}</button>
     </div>
 </div>
-<div *ngIf="reviews.length > 0">
-    <div class="mt-2" *ngFor="let review of sortedReviews">
-        <th>{{review.author}} {{review.rating}} </th>
-        <tr>"{{review.body.substring(0,15)}}" <app-review-detail-modal [id]="review.id"></app-review-detail-modal> </tr>
-        <tr>{{review.publish_date}}</tr>
+<div ngbDropdown class="d-inline-block">
+    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Filter by rating</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button *ngFor="let param of selectableFilterParams" (click)="filterByRating(param)"
+            ngbDropdownItem>{{param}}</button>
+    </div>
+</div>
+<div class="card-grid" *ngIf="reviews.length > 0">
+    <div class="rev-card " *ngFor="let review of sortedReviews">
+        <h5>{{review.author}}
+            <span>({{review.rating}})</span>
+            <app-rating-percentage-bar [rating]="review.rating"></app-rating-percentage-bar>
+            <small>{{review.publish_date}}</small>
+        </h5>
+
+        <p>"{{review.body.substring(0, 35)}}" <app-review-detail-modal [id]="review.id"></app-review-detail-modal>
+        </p>
     </div>
 </div>

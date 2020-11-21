@@ -10,6 +10,7 @@ import { ReviewsListComponent } from './reviews-list/reviews-list.component';
 import { ReviewsDetailComponent } from './reviews-detail/reviews-detail.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ReviewDetailModalComponent } from './review-detail-modal/review-detail-modal.component';
+import { RatingPercentageBarComponent } from './rating-percentage-bar/rating-percentage-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReviewDetailModalComponent } from './review-detail-modal/review-detail-
     ReviewsListComponent,
     ReviewsDetailComponent,
     LoadingSpinnerComponent,
-    ReviewDetailModalComponent
+    ReviewDetailModalComponent,
+    RatingPercentageBarComponent
   ],
   imports: [
     BrowserModule,
