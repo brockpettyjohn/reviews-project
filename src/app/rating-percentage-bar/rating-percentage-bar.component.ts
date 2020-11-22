@@ -11,6 +11,7 @@ export class RatingPercentageBarComponent implements OnInit {
 
   @Input() rating: number;
   percentage: number;
+  color: string;
 
   ngOnInit(): void {
     this.calculatePercentage();
@@ -19,7 +20,11 @@ export class RatingPercentageBarComponent implements OnInit {
   calculatePercentage(): void {
     const highestPossibleRating = 5;
     this.percentage = this.rating / highestPossibleRating * 100;
-    console.log(this.percentage);
+    if(this.percentage > 60) {
+      this.color = "green";
+    } else {
+      this.color = "orange";
+    }
   }
 
 }

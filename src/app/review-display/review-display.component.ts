@@ -14,7 +14,7 @@ export class ReviewDisplayComponent implements OnInit {
 
   averageReviewRating: number;
   reviews: Review[] = [];
-  ratingsCounts: any = {};
+  ratingsCounts: any[] = [];
 
 
   ngOnInit(): void {
@@ -43,4 +43,9 @@ export class ReviewDisplayComponent implements OnInit {
       }
     });
   }
+}
+
+export class Rating {
+  ratingFloor: number;
+  ratingCount: number;
 }

@@ -16,6 +16,7 @@ export class ReviewsListComponent implements OnInit {
   constructor() { }
 
   @Input() reviews: Review[];
+  @Input() ratingsCounts: any[];
   sortedReviews: Review[];
   filteredReviews: Review[];
   ascending: boolean = false;

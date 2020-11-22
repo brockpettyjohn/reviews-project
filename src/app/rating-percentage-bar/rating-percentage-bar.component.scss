@@ -2,8 +2,16 @@
     height: 10px;
     width: 50px;
     background-color: rgb(170, 170, 170);
+    position: relative;
     .bar{
         height: 100%;
         background-color: rgb(26, 158, 26);
+    }
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 98%;
+        height: 98%;
     }
 }
