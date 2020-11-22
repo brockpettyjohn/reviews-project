@@ -17,15 +17,17 @@
 </div>
 <div class="card-grid" *ngIf="reviews.length > 0">
     <div class="rev-card " *ngFor="let review of sortedReviews">
-        <h5>{{review.author}}
-            <span>({{review.rating}})</span>
-            <div style="width: 80px; height: 15px;">
-                <app-rating-percentage-bar [rating]="review.rating" [highestPossibleCount]="5"></app-rating-percentage-bar>
+        <div class="rev-card-header">
+            <h5>{{review.author}}</h5>
+            <div class="rating-plus-bar">
+                <span>{{review.rating}}</span>
+                <div style="width: 80px; height: 15px;">
+                    <app-rating-percentage-bar [rating]="review.rating" [highestPossibleCount]="5">
+                    </app-rating-percentage-bar>
+                </div>
             </div>
             <small>{{review.publish_date}}</small>
-        </h5>
-
-        <p>"{{review.body.substring(0, 35)}}" <app-review-detail-modal [id]="review.id"></app-review-detail-modal>
-        </p>
+        </div>
+        <p>"{{review.body.substring(0, 35)}}" <app-review-detail-modal [id]="review.id"></app-review-detail-modal></p>
     </div>
 </div>

@@ -4,15 +4,17 @@
 <div class="container">
     <div class="row" *ngIf="reviews">
         <div class="col">
-            <h1>
-                Shakespeare
-            </h1>
-            <div class=" d-flex align-items-center">
-                <span class="mr-2" style="font-size: 3em;color:rgb(100, 98, 98)">{{ averageReviewRating }}</span>
-                <div *ngIf="averageReviewRating" class="mr-2" style="width: 9em; height: 1.5em;">
-                    <app-rating-percentage-bar [rating]="averageReviewRating" [highestPossibleCount]="5"></app-rating-percentage-bar>
+            <div class="header">
+                <h1>
+                    Shakespeare
+                </h1>
+                <div class=" d-flex align-items-center">
+                    <span class="mr-2" style="font-size: 3em;color:rgb(100, 98, 98)">{{ averageReviewRating }}</span>
+                    <div *ngIf="averageReviewRating" class="mr-2" style="width: 9em; height: 1.5em;">
+                        <app-rating-percentage-bar [rating]="averageReviewRating" [highestPossibleCount]="5"></app-rating-percentage-bar>
+                    </div>
+                    <span>{{ reviews.length }} reviews</span>
                 </div>
-                <span>{{ reviews.length }} reviews</span>
             </div>
             <app-reviews-list [reviews]="reviews" [ratingsCounts]="ratingsCounts"></app-reviews-list>
         </div>
