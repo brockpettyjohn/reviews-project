@@ -10,6 +10,8 @@ import { Review } from '../review';
 export class RatingPercentageBarComponent implements OnInit {
 
   @Input() rating: number;
+  @Input() showStarsImage: boolean = true;
+  @Input() highestPossibleCount: number;
   percentage: number;
   color: string;
 
@@ -19,7 +21,8 @@ export class RatingPercentageBarComponent implements OnInit {
 
   calculatePercentage(): void {
     const highestPossibleRating = 5;
-    this.percentage = this.rating / highestPossibleRating * 100;
+    this.percentage = this.rating / this.highestPossibleCount * 100;
+    console.log(this.rating);
     if(this.percentage > 60) {
       this.color = "green";
     } else {

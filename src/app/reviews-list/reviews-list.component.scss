@@ -34,3 +34,17 @@
         }
     }
 }
+
+.ratings-percentages {
+    display: flex;
+    align-items: center;
+}
+
+.ratings-percentages > * {
+    margin: 0em .25em 0em 0em;
+}
+
+.percentage-bar{
+    height: .5em;
+    width: 10vw;
+}

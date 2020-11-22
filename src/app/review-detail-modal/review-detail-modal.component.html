@@ -1,14 +1,21 @@
 <ng-template #content let-modal>
     <div *ngIf="review">
-        <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">{{review.author}}</h4>
-            <h4>{{review.rating}}</h4>
-                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <div class="modal-header d-flex justify-content-around">
+            <h3 class="modal-title" id="modal-basic-title">{{review.author}}</h3>
+
+
+            <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
                         <span aria-hidden="true">&times;</span>
-                    </button>
+                    </button> -->
         </div>
         <div class="modal-body">
-            <span>"{{review.body}}"</span>
+            <div class="row align-items-center">
+                <span class="mr-2" style="font-size: 1.5em;">{{review.rating}}</span>
+                <div style="width: 118px;height: 20px">
+                    <app-rating-percentage-bar [rating]="review.rating"></app-rating-percentage-bar>
+                </div>
+            </div>
+            <span style="font-size: 1.2em;">"{{review.body}}"</span>
         </div>
     </div>
 
