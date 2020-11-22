@@ -38,6 +38,10 @@
 .ratings-percentages {
     display: flex;
     align-items: center;
+    :hover {
+        cursor: pointer;
+        color: lightblue;
+    }
 }
 
 .ratings-percentages > * {
