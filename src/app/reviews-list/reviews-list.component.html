@@ -19,7 +19,9 @@
     <div class="rev-card " *ngFor="let review of sortedReviews">
         <h5>{{review.author}}
             <span>({{review.rating}})</span>
-            <app-rating-percentage-bar [rating]="review.rating"></app-rating-percentage-bar>
+            <div style="width: 80px; height: 15px;">
+                <app-rating-percentage-bar [rating]="review.rating" [highestPossibleCount]="5"></app-rating-percentage-bar>
+            </div>
             <small>{{review.publish_date}}</small>
         </h5>
 
