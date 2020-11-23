@@ -1,22 +1,24 @@
 <ng-template #content let-modal>
-    <div class="container">
-        <div class="row">
-            <div *ngIf="review" class="col">
-                <div class="">
-                    <h3>{{review.author}}</h3>
-                    <!-- <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                                    <span aria-hidden="true">&times;</span>
-                                </button> -->
-                </div>
-                <div>
-                    <div class="d-flex align-items-center">
-                        <span class="mr-2" style="font-size: 1.5em;">{{review.rating}}</span>
-                        <div style="width: 118px;height: 20px">
-                            <app-rating-percentage-bar [rating]="review.rating"></app-rating-percentage-bar>
-                        </div>
-                        <span class="ml-2">{{review.publish_date}}</span>
+    <ng-container *ngIf="!review">
+        <app-loading-spinner></app-loading-spinner>
+    </ng-container>
+    <div class="modal-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col" *ngIf="review">
+                    <div>
+                        <h2>{{review.author}}</h2>
                     </div>
-                    <span style="font-size: 1.2em;">"{{review.body}}"</span>
+                    <div>
+                        <div class="d-flex align-items-center">
+                            <span class="mr-2" style="font-size: 1.5em;">{{review.rating}}</span>
+                            <div style="width: 118px;height: 20px">
+                                <app-rating-percentage-bar [rating]="review.rating" [highestPossibleCount]="5"></app-rating-percentage-bar>
+                            </div>
+                            <span class="ml-2">{{review.publish_date}}</span>
+                        </div>
+                        <span style="font-size: 1.2em;">"{{review.body}}"</span>
+                    </div>
                 </div>
             </div>
         </div>
