@@ -20,9 +20,7 @@ export class RatingPercentageBarComponent implements OnInit {
   }
 
   calculatePercentage(): void {
-    const highestPossibleRating = 5;
     this.percentage = this.rating / this.highestPossibleCount * 100;
-    console.log(this.rating);
     if(this.percentage > 60) {
       this.color = "green";
     } else {

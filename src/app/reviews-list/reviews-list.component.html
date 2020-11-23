@@ -15,7 +15,7 @@
             ngbDropdownItem>{{term.displayName}}</button>
     </div>
 </div>
-<div class="card-grid" *ngIf="reviews.length > 0">
+<div class="card-grid" *ngIf="reviews && reviews.length > 0">
     <div class="rev-card " *ngFor="let review of sortedReviews">
         <div class="rev-card-header">
             <h5>{{review.author}}</h5>

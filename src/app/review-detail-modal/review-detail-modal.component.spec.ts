@@ -1,5 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ReviewDetailModalComponent } from './review-detail-modal.component';
 
 describe('ReviewDetailModalComponent', () => {
@@ -8,9 +8,10 @@ describe('ReviewDetailModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReviewDetailModalComponent ]
+      declarations: [ReviewDetailModalComponent],
+      imports: [HttpClientModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
