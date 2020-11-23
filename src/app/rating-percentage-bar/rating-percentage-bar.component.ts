@@ -1,6 +1,5 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import { Review } from '../review';
 
 @Component({
   selector: 'app-rating-percentage-bar',
@@ -21,7 +20,7 @@ export class RatingPercentageBarComponent implements OnInit {
 
   calculatePercentage(): void {
     this.percentage = this.rating / this.highestPossibleCount * 100;
-    if(this.percentage > 60) {
+    if (this.percentage > 60) {
       this.color = "green";
     } else {
       this.color = "orange";

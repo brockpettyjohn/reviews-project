@@ -1,33 +1,36 @@
-<div class="d-flex flex-column-reverse">
-    <div class="ratings-percentages" *ngFor="let count of ratingsCounts; let i = index" (click)="filterByRating(i)">
-        <span style="font-size: 1.25em;">{{i}} star </span>
-        <div class="percentage-bar">
-            <app-rating-percentage-bar [rating]="count" [highestPossibleCount]="100" [showStarsImage]="false">
-            </app-rating-percentage-bar>
-        </div>
-        <span>{{count/reviews.length * 100}}%</span>
-    </div>
-</div>
-<div ngbDropdown class="d-inline-block">
-    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Sorty by</button>
-    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button *ngFor="let term of selectableTerms" (click)="sortReviewsList(term.selectedTerm)"
-            ngbDropdownItem>{{term.displayName}}</button>
-    </div>
-</div>
-<div class="card-grid" *ngIf="reviews && reviews.length > 0">
-    <div class="rev-card " *ngFor="let review of sortedReviews">
-        <div class="rev-card-header">
-            <h5>{{review.author}}</h5>
-            <div class="rating-plus-bar">
-                <span>{{review.rating}}</span>
-                <div style="width: 80px; height: 15px;">
-                    <app-rating-percentage-bar [rating]="review.rating" [highestPossibleCount]="5">
-                    </app-rating-percentage-bar>
-                </div>
+<div class="review-content">
+    <div class="rev-perc">
+        <div class="ratings-percentages" *ngFor="let count of ratingsCounts; let i = index" (click)="filterByRating(i)">
+            <span style="font-size: 1.25em;">{{i}} star </span>
+            <div class="percentage-bar">
+                <app-rating-percentage-bar [rating]="count" [highestPossibleCount]="100" [showStarsImage]="false">
+                </app-rating-percentage-bar>
             </div>
-            <small>{{review.publish_date}}</small>
+            <span>{{count/reviews.length * 100}}%</span>
         </div>
-        <p>"{{review.body.substring(0, 35)}}" <app-review-detail-modal [id]="review.id"></app-review-detail-modal></p>
+        <div ngbDropdown class="rev-stats">
+            <span id="dropdownBasic1" ngbDropdownToggle>Sort by</span>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button *ngFor="let term of selectableTerms" (click)="sortReviewsList(term.selectedTerm)"
+                    ngbDropdownItem>{{term.displayName}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="card-grid" *ngIf="reviews && reviews.length > 0">
+        <div class="rev-card " *ngFor="let review of sortedReviews">
+            <div class="rev-card-header">
+                <h5>{{review.author}}</h5>
+                <div class="rating-plus-bar">
+                    <span>{{review.rating}}</span>
+                    <div style="width: 80px; height: 15px;">
+                        <app-rating-percentage-bar [rating]="review.rating" [highestPossibleCount]="5">
+                        </app-rating-percentage-bar>
+                    </div>
+                </div>
+                <small>{{review.publish_date}}</small>
+            </div>
+            <p>"{{review.body.substring(0, 35)}}" <app-review-detail-modal [id]="review.id"></app-review-detail-modal>
+            </p>
+        </div>
     </div>
 </div>

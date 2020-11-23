@@ -36,7 +36,6 @@ export class ReviewsListComponent implements OnInit {
       selectedTerm: 'rating'
     }
   ]
-  selectableFilterParams = ['All', 5, 4, 3, 2, 1, 0];
 
   ngOnInit(): void {
     this.filterByRating('All');
@@ -46,29 +45,29 @@ export class ReviewsListComponent implements OnInit {
   sortReviewsList(term: string) {
     this.currentTerm === term ? this.ascending = !this.ascending : this.ascending = false;
 
-   if(this.filteredReviews) {
-    if (this.ascending) {
-      this.sortedReviews = this.filteredReviews.sort((a, b) => {
-        if (a[term] < b[term]) {
-          return -1;
-        }
-        if (a.rating > b.rating) {
-          return 1;
-        }
-        return 0;
-      });
-    } else {
-      this.sortedReviews = this.filteredReviews.sort((a, b) => {
-        if (a[term] > b[term]) {
-          return -1;
-        }
-        if (a.rating < b.rating) {
-          return 1;
-        }
-        return 0;
-      });
+    if (this.filteredReviews) {
+      if (this.ascending) {
+        this.sortedReviews = this.filteredReviews.sort((a, b) => {
+          if (a[term] < b[term]) {
+            return -1;
+          }
+          if (a.rating > b.rating) {
+            return 1;
+          }
+          return 0;
+        });
+      } else {
+        this.sortedReviews = this.filteredReviews.sort((a, b) => {
+          if (a[term] > b[term]) {
+            return -1;
+          }
+          if (a.rating < b.rating) {
+            return 1;
+          }
+          return 0;
+        });
+      }
     }
-   }
     this.currentTerm = term;
   }
 

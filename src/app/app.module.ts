@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { ReviewDisplayComponent } from './review-display/review-display.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReviewsListComponent } from './reviews-list/reviews-list.component';
-import { ReviewsDetailComponent } from './reviews-detail/reviews-detail.component';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { ReviewDetailModalComponent } from './review-detail-modal/review-detail-modal.component';
 import { RatingPercentageBarComponent } from './rating-percentage-bar/rating-percentage-bar.component';
@@ -17,7 +16,6 @@ import { RatingPercentageBarComponent } from './rating-percentage-bar/rating-per
     AppComponent,
     ReviewDisplayComponent,
     ReviewsListComponent,
-    ReviewsDetailComponent,
     LoadingSpinnerComponent,
     ReviewDetailModalComponent,
     RatingPercentageBarComponent

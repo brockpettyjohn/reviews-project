@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Review } from '../review';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -16,17 +15,18 @@ export class ReviewDisplayComponent implements OnInit {
   averageReviewRating: number;
   reviews: Review[] = [];
   ratingsCounts: any[] = [];
-
+  isLoading: boolean = true
 
   ngOnInit(): void {
     this.getReviews();
   }
 
   getReviews() {
-      this.dataService.getReviews().subscribe(rev => {
-      rev.forEach((r: Review) => this.reviews.push({ ...r, publish_date: new Date(r.publish_date).toLocaleDateString() }));
+    this.dataService.getReviews().subscribe(reviews => {
+      reviews.forEach((review: Review) => this.reviews.push({ ...review, publish_date: new Date(review.publish_date).toLocaleDateString() }));
       this.calculateTotalAverageRating();
       this.calculateRatingCounts();
+      this.isLoading = false
     });
   }
 
