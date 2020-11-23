@@ -2,12 +2,16 @@
 .review-content {
     display: grid;
     grid-template-areas: 'perc cards'; 
+    grid-template-columns: auto 1fr;
     margin: 10px auto;
     max-width: 1200px;
 }
 
 .rev-perc {
     grid-area: perc;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
 }
 
 .card-grid {
